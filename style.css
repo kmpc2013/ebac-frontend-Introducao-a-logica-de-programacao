@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #f8fbff;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0, 245, 255, 0.28), transparent 28%),
+        radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.35), transparent 30%),
+        linear-gradient(135deg, #070b1a 0%, #111827 48%, #220a3d 100%);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.app {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+}
+
+.card {
+    width: min(100%, 520px);
+    padding: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 30px;
+    background: rgba(8, 13, 31, 0.78);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45), 0 0 42px rgba(0, 245, 255, 0.12);
+    backdrop-filter: blur(18px);
+    animation: card-entry 500ms ease-out;
+}
+
+.hero {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hero p {
+    margin: 0;
+}
+
+.hero p:first-child {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    text-shadow: 0 0 28px rgba(0, 245, 255, 0.55);
+}
+
+.hero p:last-child {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 8px 14px;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 999px;
+    color: #9ffcff;
+    background: rgba(0, 245, 255, 0.08);
+    font-weight: 700;
+}
+
+.form-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+}
+
+label {
+    color: #b7c4db;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+input {
+    width: 100%;
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    outline: none;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+input::placeholder {
+    color: rgba(248, 251, 255, 0.42);
+}
+
+input:focus {
+    border-color: #00f5ff;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 4px rgba(0, 245, 255, 0.14), 0 0 28px rgba(0, 245, 255, 0.18);
+}
+
+button {
+    min-height: 56px;
+    border: 0;
+    border-radius: 18px;
+    color: #06111f;
+    background: linear-gradient(135deg, #00f5ff 0%, #9cff3b 100%);
+    box-shadow: 0 16px 32px rgba(0, 245, 255, 0.22);
+    cursor: pointer;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 42px rgba(156, 255, 59, 0.28);
+    filter: saturate(1.1);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+button:disabled {
+    color: rgba(255, 255, 255, 0.58);
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.results {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.result-box,
+.tentativas-box {
+    min-height: 52px;
+    margin: 0;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #eaf2ff;
+}
+
+.result-box {
+    border: 1px solid rgba(156, 255, 59, 0.25);
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.tentativas-box {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #b7c4db;
+    font-weight: 700;
+}
+
+@keyframes card-entry {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (min-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+    }
+
+    button {
+        padding-inline: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 26px 20px;
+        border-radius: 24px;
+    }
+
+    .hero {
+        margin-bottom: 24px;
+    }
+
+    input,
+    button {
+        border-radius: 16px;
+    }
+}
